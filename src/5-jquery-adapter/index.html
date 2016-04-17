@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.css" rel="stylesheet" type="text/css" />
+  <link href="./index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Giphy jQuery Plugin</h1>
+
+  <input type="search" />
+
+  <!--
+  https://github.com/Giphy/GiphyAPI
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.9.0/lodash.min.js"></script>
+  <script src="../../lib/src/4-vanilla-es6/Giphy.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="./jquery.giphy.js"></script>
+  <script>
+  ( function() {
+    $( "input" ).giphy( { ajax: { rating: "pg" } } );
+  }() );
+  </script>
+</body>
+</html>

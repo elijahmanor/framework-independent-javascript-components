@@ -1,0 +1,25 @@
+{
+  "globals": {
+    "DEBUG": false,
+    "jQuery": false
+  },
+
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules" : true
+  },
+
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+
+  "rules": {
+    "jsx-quotes": 1,
+    "no-undef": 2,
+    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+    "no-underscore-dangle" : 0
+  }
+}
