@@ -1,0 +1,60 @@
+.Giphy {
+	position: relative;
+	display: inline-block;
+	display: flex;
+	flex-direction: column;
+	max-width: 25rem;
+}
+
+.Giphy-toggle:after {
+	content: "🔍";
+	position: absolute;
+	top: 0;
+	right: 0.5rem;
+	cursor: pointer;
+}
+
+.Giphy--search .Giphy-toggle:after {
+	content: "☓";
+}
+
+.Giphy-controls {
+	height: 1.5rem;
+	background-color: black;
+}
+
+.Giphy-controls:after {
+	content: attr(data-count);
+	color: white;
+	line-height: 1.5rem;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+}
+
+.Giphy-prev:after {
+	content: "◀";
+	color: white;
+	line-height: 1.5rem;
+	position: absolute;
+	left: 0.5rem;
+	cursor: pointer;
+}
+
+.Giphy-next:after {
+	content: "▶";
+	color: white;
+	line-height: 1.5rem;
+	position: absolute;
+	right: 0.5rem;
+	cursor: pointer;
+}
+
+.Giphy-prev:hover:after,
+.Giphy-next:after:hover {
+	color: blue;
+}
+
+html, body {
+	margin: 1rem;
+}
