@@ -12,17 +12,30 @@
 
   <input type="search" />
 
-  <a href="./index-encoder-decoder.html">index-encoder-decoder</a>
-
-  <!--
-  https://github.com/Giphy/GiphyAPI
-  -->
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="./index.js"></script>
   <script>
   ( function( $ ) {
     $( document ).ready( function() {
-      $( "input" ).giphy();
+      $( "input" ).giphy( {
+		  ajax: {
+	        url: "http://thecatapi.com/api/images/get"
+	      },
+	      encoder: function( data ) {
+	        return {
+	          format: "xml",
+	          results_per_page: 20 // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+	        };
+	      },
+	      decoder: function( response ) {
+	        var list = ( response && response.querySelectorAll( "url" ) ) || [];
+	        return [].map.call( list, function( item ) {
+	          return {
+	            url: item.innerHTML
+	          };
+	        } );
+	      }
+	  } );
     } );
   }( jQuery ) );
   </script>

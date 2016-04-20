@@ -113,6 +113,7 @@
 	};
 
 	Giphy.prototype.request = function( value ) {
+		debugger;
 		return this.options.fetch(
 			this.options.ajax.url,
 			this.options.encoder( {
@@ -143,7 +144,7 @@
 			controls: "<div class='Giphy-controls' tabindex='0'><span class='Giphy-prev'></span><span class='Giphy-next'></span></div>"
 		},
 		ajax: {
-			url: "http://api.giphy.com/v1/gifs/search",
+			url: "//api.giphy.com/v1/gifs/search",
 			apiKey: "dc6zaTOxFJmzC",
 			rating: "g"
 		},

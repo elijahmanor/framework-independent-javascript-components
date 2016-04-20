@@ -82,9 +82,3 @@
     } );
   };
 }( jQuery ) );
-
-( function( $ ) {
-  $( document ).ready( function() {
-    $( "input" ).giphy();
-  } );
-}( jQuery ) );

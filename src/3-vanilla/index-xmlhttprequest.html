@@ -12,18 +12,31 @@
 
   <input type="search" />
 
-  <ul>
-	<li><a href="./index-xmlhttprequest.html">XMLHttpRequest Fetch Bridge</a></li>
-	<li><a href="./index-reqwest.html">Reqwest Fetch Bridge</a></li>
-	<li><a href="./index-jquery.html">jQuery Fetch Bridge</a></li>
-  </ul>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.9.0/lodash.min.js"></script>
   <script src="./index.js"></script>
   <script>
   ( function() {
     var search = document.querySelector( "input" );
-    var giphy = new Giphy( search, { ajax: { rating: "pg" } } );
+    var giphy = new Giphy( search, {
+		fetch: function( url, data ) {
+			return new Promise( function( resolve, reject ) {
+				var request = new XMLHttpRequest();
+				url += this.params( data );
+				request.open( "GET", url );
+				request.onload = function() {
+					if ( request.status === 200 ) {
+						resolve( JSON.parse( request.response ) );
+					} else {
+						reject( new Error( request.statusText ) );
+					}
+				};
+				request.onerror = function() {
+					reject( new Error( "Network Error" ) );
+				};
+				request.send();
+			}.bind( this ) );
+		}
+	} );
   }() );
   </script>
 </body>

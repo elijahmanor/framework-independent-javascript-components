@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.css" rel="stylesheet" type="text/css" />
-  <link href="./index.css" rel="stylesheet" type="text/css" />
+  <link href="./jquery.giphy.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <h1>Giphy jQuery Plugin</h1>
 
   <input type="search" />
 
-  <!--
-  https://github.com/Giphy/GiphyAPI
-  -->
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-  <script src="./index.js"></script>
+  <script src="./jquery.giphy.js"></script>
+  <script>
+	( function( $ ) {
+		$( document ).ready( function() {
+			$( "input" ).giphy();
+		} );
+	}( jQuery ) );
+  </script>
 </body>
 </html>
